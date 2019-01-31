@@ -1,6 +1,5 @@
 package exercise05;
 
-import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -39,11 +38,11 @@ public class MouseLambda extends Pane{
 		 *  when mouse enters/leaves the GUI window.
 		 * **************************************************************/
 		// (1) write the lambda expression for setOnMouseEntered to CYAN.
-		square.setOnMouseMoved(e -> move(e) );
+		setOnMouseEntered(e -> setStyle("-fx-background-color: cyan;"));
 		
 		
 		// (2) write the lambda expression for setOnMouseEXITED to YELLOW.
-		square.getOnMouseExited();
+		setOnMouseExited(e -> setStyle("-fx-background-color: yellow;"));
 		
 		square = new Rectangle(x, y, width, height);
 		square.setFill(Color.BLUEVIOLET);
@@ -52,7 +51,7 @@ public class MouseLambda extends Pane{
 		 *  use a lambda expression to move the square shape.
 		 * ***************************************************************/
 		// (3) write the lambda expression for setOnMouseMoved to move.
-		square.setOnMouseMoved(event -> move(event));
+		square.setOnMouseMoved(e -> move(e));
 		
 		getChildren().add(square);
 	}

@@ -8,6 +8,7 @@ import javafx.stage.Stage;
  * <p> Lab 02 Exercise 02
  * 	   This class is a general window for displaying graphical
  *     components.This format can be used for all window displays.
+ * @param <functionC>
  ************************************************************************/
 public class WindowA extends Application {
 	
@@ -28,8 +29,10 @@ public class WindowA extends Application {
 		pane.setStyle("-fx-background-color: black;");
 		
 		// (1) call draw method of NewPane object for Rectangle graphics
+
 		
 		// (2) call write method of NewPane object for Rectangle graphics
+		
 		
 		/**********************************************************
 		 * required:  Scene

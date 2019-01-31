@@ -1,6 +1,5 @@
 package exercise05;
 
-import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
@@ -44,11 +43,17 @@ public class KeyLambda extends Pane{
 		 *  arrow keys.
 		 * ***************************************************************/
 		// (4) write the lambda expression for setOnKeyPressed to move.
+		
+		/*
 		square.setOnKeyPressed( new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event) {
 				move(event);
 			}
 		} );
+		*/
+		
+		square.setOnKeyPressed(e -> move(e));
+		
 		/**********************************************
 		 * 	focus  key strokes on Rectangle shape.
 		 * ********************************************/
