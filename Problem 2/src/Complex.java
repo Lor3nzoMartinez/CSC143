@@ -1,8 +1,8 @@
 
 public class Complex {
 	
-	int re;
-	int im;
+	private int re;
+	private int im;
 	
 	Complex(int im, int re) {
 		
