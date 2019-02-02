@@ -1,8 +1,7 @@
 package algorithms;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+
 
 public class AlgorithmClient {
 	
@@ -12,6 +11,8 @@ public class AlgorithmClient {
 	static int[] list4 = {2,4,5,7,8,9};
 	static int[] list5 = {2,4,5,7,8,9};
 	static int[] list6 = {1,2,4,5,7,8,9};
+	static int[] list7 = {2,9,5,4,8,1,6};
+	static int[] list7v2 = {2,9,5,4,8,1,6};
 	
 	
 	
@@ -73,11 +74,33 @@ public class AlgorithmClient {
 	
 	public static void insert(int[] list) {
 		int [] saveList =new int[list.length+1];
+		helperShiftRight(list);
 		for (int firstHalf = 0; firstHalf < list.length/2; ++firstHalf) {
 			saveList[firstHalf] = list[firstHalf];
 		}
-		for (int lastHalf = 4; lastHalf < list.length; ++lastHalf) {
+		for (int lastHalf = 4; lastHalf < list.length+1; ++lastHalf) {
 			saveList[lastHalf] = list[lastHalf-1];
+		}
+		print(saveList);
+	}
+	
+	public static void selectionSort(int[] list) {
+		int [] saveList =new int[1];
+		for (int x = 0; x < list.length-1; ++x) {
+			if (list[x] < list[x+1]) {
+				saveList[0] = list[x];
+			}
+		}
+		print(saveList);
+	}
+	
+	public static void selectionSortv2(int[] list) {
+		int [] saveList =new int[list.length];
+		for (int x = 0; x < list.length-1; ++x) {
+			if (list[x] < list[x+1]) {
+				for (int i = 0; i < list.length; ++i)
+					saveList[i] = list[x];
+			}
 		}
 		print(saveList);
 	}
@@ -88,34 +111,53 @@ public class AlgorithmClient {
 		// TODO Auto-generated method stub
 		
 		// Problem 1
+		System.out.println("Problem #1");
 		print(list1);
 		System.out.println("\n");
 		
 		//Problem 2
+		System.out.println("Problem #2");
 		System.out.println(getKeyCount(list2,2));
 		System.out.println(getKeyCount(list2,4));
 		System.out.println(getKeyCount(list2,8));
 		System.out.println("\n");
 		
 		//Problem 3
+		System.out.println("Problem #3");
 		System.out.println(indexOf(list3,2));
 		System.out.println(indexOf(list3,7));
 		System.out.println(indexOf(list3,8));
 		System.out.println("\n");
 		
 		//Problem 4
+		System.out.println("Problem #4");
 		print(list4);
 		shiftLeft(list4);
 		System.out.println("\n");
 		
 		//Problem 5
+		System.out.println("Problem #5");
 		print(list5);
 		shiftRight(list5);
 		System.out.println("\n");
 		
 		//Problem 6
+		System.out.println("Problem #6");
 		print(list6);
 		insert(list6);
+		System.out.println("\n");
+		
+		//Problem 7
+		System.out.println("Problem #7");
+		print(list7);
+		selectionSort(list7);
+		System.out.println("\n");
+		
+		//Problem 7 v2
+		System.out.println("Problem #7.2");
+		print(list7v2);
+		selectionSortv2(list7v2);
+		
 	}
 
 }
