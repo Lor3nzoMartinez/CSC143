@@ -23,6 +23,7 @@ public class Recursion {
 			secPrevious = fibSequence(n-2);
 			n = previous + secPrevious;
 			}
+		
 		return n;
 	}
 	
@@ -35,9 +36,12 @@ public class Recursion {
 		System.out.println(" \n");
 		
 		//Problem #2
-		for(int i = 0; i < 10; i++)
+		for(int i = 0; i < 25; i++)
 		System.out.print("Fib Series of " + i + " : " + fibSequence(i)+ "\n");
 		System.out.println(" ");
+		
+		//Problem #3 
+		
 	}
 
 }
