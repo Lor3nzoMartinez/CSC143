@@ -21,6 +21,7 @@ public class Line{
 
 
 // mutators
+	
 	public void setEndPoints(Point p1, Point p2) {
 		this.p1 = p1;
 		this.p2 = p2;
@@ -33,6 +34,7 @@ public class Line{
 
 
 // accessors
+	
 	public Point getP1() {
 		return p1;
 	}
