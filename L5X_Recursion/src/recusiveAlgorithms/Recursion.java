@@ -19,7 +19,7 @@ public class Recursion {
 		
 		if(n == 0) { return n; } 
 		
-		else if(n<3) { n = previous + secPrevious;} 
+		else if(n<3) { n = previous + secPrevious; } 
 		
 		else {
 			previous = fibSequence(n-1);
