@@ -86,7 +86,7 @@ public class practiceIt {
 		}
 		
 // Problem digitMatch
-	public static int digitMatch(int x, int y) {
+	public static void digitMatch(int x, int y) {
 		String strY = new Integer(y).toString();
 		String strX = new Integer(x).toString();
 		String strXHelper = strX;
