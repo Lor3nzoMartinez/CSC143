@@ -49,11 +49,13 @@ public class Recursion {
 		
 		if(n <= 1) {return n;}
 		
-		else if(n % 2 != 0 && n > 0) { n = sumOfOddPosN(n-2) + n ; }
+		else if(n % 2 != 0 && n > 0) { 
+			n = sumOfOddPosN(n-2) + n ;
+			return n;
+			
+		}
+		else { return n;}
 		
-		else { return n; }
-		
-		return n;
 	}
 	
 //PROBLEM 5

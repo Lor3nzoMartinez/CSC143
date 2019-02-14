@@ -1,6 +1,6 @@
 
 
-public class RecursivelyPrintFactorial {
+public class practiceIt {
 
 	
 // Problem starString
@@ -57,10 +57,62 @@ public class RecursivelyPrintFactorial {
 	}
 
 // Problem multiplyEvens
-	public static void multiplyEvens(int n) {
+	public static int multiplyEvens(int n) {
 		
+		if (n < 1) { throw new IllegalArgumentException();}
+		
+		else if (n == 1) { n = 2; }
+		
+		else {
+			n = n * 2 * multiplyEvens(n-1);
+		}
+		
+		return n;
 	}
 
+// Problem sumTo
+	public static double sumTo(int n) {
+			double holder = 0;
+			
+			if (n < 0) { throw new IllegalArgumentException(); }
+			
+			else if (n == 0) { return 0.0; }
+			
+			else { 
+				holder = n ; 
+				return 1/holder + sumTo(n-1) ;
+			}
+			
+		}
+		
+// Problem digitMatch
+	public static int digitMatch(int x, int y) {
+		String strY = new Integer(y).toString();
+		String strX = new Integer(x).toString();
+		String strXHelper = strX;
+		String strYHelper = strY;
+		int helper = 0 ;
+		
+		if ( x < 0 || y < 0 ) { throw new IllegalArgumentException(); }
+		
+		else { 
+			for (int i = 1; i > 5; i++) {
+				strXHelper = strX.substring(i-1, i);
+				System.out.println(strXHelper);
+				return i;
+			}
+			
+		}
+		
+		return 35505;
+		
+	}
+	
+	
+	public static int getPartOfInt(int number, int start, int end){
+	    String str = new Integer(number).toString();
+	    return Integer.parseInt(str.substring(start, Math.min(end, str.length())));
+	}
 	
 // TESTS
    public static void main (String [] args) {
@@ -88,9 +140,23 @@ public class RecursivelyPrintFactorial {
 	   System.out.println(" \n");
 	   
 	   //Test writeSequence
-	   multiplyEvens(5);
+	   for (int i = 1; i < 8; i++) {
+		   System.out.println(multiplyEvens(i));
+	   }  
 	   System.out.println(" \n");
-	   		
 	   
+	   //Test sumTo
+	   for (int i = 1; i < 6; i++) {
+		   System.out.println(sumTo(i));
+	   }  
+	   System.out.println(" \n");
+	   
+	   //Test digitMatch
+	   
+	   System.out.println(digitMatch(123456,123456));
+	   System.out.println(" \n");
+	   
+	   
+
    	}
 }

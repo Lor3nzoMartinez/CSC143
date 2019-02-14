@@ -12,7 +12,7 @@ public class AlgorithmClient {
 	static int[] list5 = {2,4,5,7,8,9};
 	static int[] list6 = {1,2,4,5,7,8,9};
 	static int[] list7 = {2,9,5,4,8,1,6};
-	static int[] list7v2 = {2,9,5,4,8,1,6};
+	static int[] list8 = {2,9,5,4,8,1,6};
 	
 	
 	
@@ -94,15 +94,16 @@ public class AlgorithmClient {
 		print(saveList);
 	}
 	
-	public static void selectionSortv2(int[] list) {
-		int [] saveList =new int[list.length];
-		for (int x = 0; x < list.length-1; ++x) {
-			if (list[x] < list[x+1]) {
-				for (int i = 0; i < list.length; ++i)
-					saveList[i] = list[x];
+	public static void descendingSort(int[] list) {
+		int [] saveList = new int[list.length];
+		for (int i = 0; i < list.length; i++) {
+			for (int l = 0; l < list.length; l++) {
+				if (list[i] < list[l]) {
+					saveList[l] = list[i];
+					
+				}
 			}
 		}
-		print(saveList);
 	}
 	
 	
@@ -153,10 +154,10 @@ public class AlgorithmClient {
 		selectionSort(list7);
 		System.out.println("\n");
 		
-		//Problem 7 v2
-		System.out.println("Problem #7.2");
-		print(list7v2);
-		selectionSortv2(list7v2);
+		//Problem 8
+		System.out.println("Problem #8");
+		print(list8);
+		descendingSort(list8);
 		
 	}
 
