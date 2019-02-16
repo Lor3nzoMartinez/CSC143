@@ -1,85 +1,114 @@
 package n_Queens;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
+/**
+ * Date 02/20/2016
+ * @author Tushar Roy
+ *
+ * Given nxn board place n queen on this board so that they dont attack each other. One solution is to find
+ * any placement of queens which do not attack each other. Other solution is to find all placements of queen
+ * on the board.
+ *
+ * Time complexity O(n*n)
+ * Space complexity O(n*n)
+ */
+public class queenProblem {
 
-public class queenProblem extends Application {
+    class Position {
+        int row, col;
+        Position(int row, int col) {
+            this.row = row;
+            this.col = col;
+        }
+    }
 
-	public static void row(Stage applicationStage) {
-		Pane pane = new Pane();                    // Create an empty pane    
-	      Scene scene = new Scene(pane);             // Create a scene containing the pane
-	      Canvas canvas = new Canvas(400, 400);      // Create a canvas in which to draw
-	      
-	      // Get the canvas' graphics context to draw
-	      GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
-	            
-	      
-	      Color binColor1 = Color.rgb(119,136,153);
-	      Color binColor2 = Color.rgb(255,255,255);
-	      
-	      graphicsContext.setFill(binColor1);
-	      graphicsContext.fillRect(50, 100, 50, 50);
-	      graphicsContext.fillRect(150, 100, 50, 50);
-	      graphicsContext.fillRect(250, 100, 50, 50);
-	      graphicsContext.fillRect(350, 100, 50, 50);
-	      
-	      graphicsContext.setFill(binColor2);
-	      graphicsContext.fillOval(50, 0, 50, 50);
-	      graphicsContext.setFill(binColor1);
-	      graphicsContext.fillText("Q", 70, 33, 50);
-	      
+    public Position[] solveNQueenOneSolution(int n) {
+        Position[] positions = new Position[n];
+        boolean hasSolution = solveNQueenOneSolutionUtil(n, 0, positions);
+        if (hasSolution) {
+            return positions;
+        } else {
+            return new Position[0];
+        }
+    }
 
-	      
-	      
-	      pane.getChildren().add(canvas);                // Add canvas to pane 
-	      applicationStage.setTitle("Histogram viewer"); // Set window's title
-	      applicationStage.setScene(scene);              // Set window's scene
-	      applicationStage.show(); 
-		
-	}
-	
-	
-	
-	@Override
-	   public void start(Stage applicationStage) {
-	      Pane pane = new Pane();                    // Create an empty pane    
-	      Scene scene = new Scene(pane);             // Create a scene containing the pane
-	      Canvas canvas = new Canvas(400, 400);      // Create a canvas in which to draw
-	      
-	      // Get the canvas' graphics context to draw
-	      GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
-	            
-	      
-	      Color binColor1 = Color.rgb(119,136,153);
-	      Color binColor2 = Color.rgb(255,255,255);
-	      
-	      graphicsContext.setFill(binColor1);
-	      graphicsContext.fillRect(50, 0, 50, 50);
-	      graphicsContext.fillRect(150, 0, 50, 50);
-	      graphicsContext.fillRect(250, 0, 50, 50);
-	      graphicsContext.fillRect(350, 0, 50, 50);
-	      
-	      graphicsContext.setFill(binColor2);
-	      graphicsContext.fillOval(50, 0, 50, 50);
-	      graphicsContext.setFill(binColor1);
-	      graphicsContext.fillText("Q", 70, 33, 50);
-	      
-	      
-	      
-	      
-	      pane.getChildren().add(canvas);                // Add canvas to pane 
-	      applicationStage.setTitle("Histogram viewer"); // Set window's title
-	      applicationStage.setScene(scene);              // Set window's scene
-	      applicationStage.show();                       // Display window
-	   }
-	   
-	   public static void main(String [] args) {
-	       launch(args); // Launch application
-	       row(null);
-	   }
-	}
+    private boolean solveNQueenOneSolutionUtil(int n, int row, Position[] positions) {
+        if (n == row) {
+            return true;
+        }
+        int col;
+        for (col = 0; col < n; col++) {
+            boolean foundSafe = true;
+
+            //check if this row and col is not under attack from any previous queen.
+            for (int queen = 0; queen < row; queen++) {
+                if (positions[queen].col == col || positions[queen].row - positions[queen].col == row - col ||
+                        positions[queen].row + positions[queen].col == row + col) {
+                    foundSafe = false;
+                    break;
+                }
+            }
+            if (foundSafe) {
+                positions[row] = new Position(row, col);
+                if (solveNQueenOneSolutionUtil(n, row + 1, positions)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /*
+     *Solution for https://leetcode.com/problems/n-queens/
+     */
+    public List<List<String>> solveNQueens(int n) {
+        List<List<String>> result = new ArrayList<>();
+        Position[] positions = new Position[n];
+        solve(0, positions, result, n);
+        return result;
+    }
+
+    public void solve(int current, Position[] positions, List<List<String>> result, int n) {
+        if (n == current) {
+            StringBuffer buff = new StringBuffer();
+            List<String> oneResult = new ArrayList<>();
+            for (Position p : positions) {
+                for (int i = 0; i < n; i++) {
+                    if (p.col == i) {
+                        buff.append("Q");
+                    } else {
+                        buff.append(".");
+                    }
+                }
+                oneResult.add(buff.toString());
+                buff = new StringBuffer();
+
+            }
+            result.add(oneResult);
+            return;
+        }
+
+        for (int i = 0; i < n; i++) {
+            boolean foundSafe = true;
+            for (int j = 0; j < current; j++) {
+                if (positions[j].col == i || positions[j].col - positions[j].row == i - current || positions[j].row + positions[j].col == i + current) {
+                    foundSafe = false;
+                    break;
+                }
+            }
+            if (foundSafe) {
+                positions[current] = new Position(current, i);
+                solve(current + 1, positions, result, n);
+            }
+        }
+    }
+
+    public static void main(String args[]) {
+        queenProblem s = new queenProblem();
+        Position[] positions = s.solveNQueenOneSolution(4);
+        Arrays.stream(positions).forEach(position -> System.out.println(position.row + " " + position.col));
+    }
+}

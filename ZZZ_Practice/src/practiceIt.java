@@ -86,33 +86,29 @@ public class practiceIt {
 		}
 		
 // Problem digitMatch
-	public static void digitMatch(int x, int y) {
-		String strY = new Integer(y).toString();
-		String strX = new Integer(x).toString();
-		String strXHelper = strX;
-		String strYHelper = strY;
-		int helper = 0 ;
-		
-		if ( x < 0 || y < 0 ) { throw new IllegalArgumentException(); }
-		
-		else { 
-			for (int i = 1; i > 5; i++) {
-				strXHelper = strX.substring(i-1, i);
-				System.out.println(strXHelper);
-				return i;
-			}
-			
-		}
-		
-		return 35505;
-		
+	public static int digitMatch(int a, int b) {
+	    if (a < 0 || b < 0) {
+	        throw new IllegalArgumentException();
+	    } else if (a == 0 && b == 0) {
+	        return 1;
+	    } else {
+	        int result = 0;
+	        if (a % 10 == b % 10) {
+	            result++;
+	        }
+	        if (a / 10 == 0 || b / 10 == 0) {
+	            return result;
+	        }
+	        return result + digitMatch(a / 10, b / 10);
+	    }    
 	}
 	
-	
-	public static int getPartOfInt(int number, int start, int end){
-	    String str = new Integer(number).toString();
-	    return Integer.parseInt(str.substring(start, Math.min(end, str.length())));
+// Problem repeat
+	public static String repeat(String a, int b) {
+		if () {}
+		return a;
 	}
+	
 	
 // TESTS
    public static void main (String [] args) {
@@ -152,9 +148,9 @@ public class practiceIt {
 	   System.out.println(" \n");
 	   
 	   //Test digitMatch
-	   
-	   System.out.println(digitMatch(123456,123456));
-	   System.out.println(" \n");
+	   System.out.println(" \n" + digitMatch(38, 34) + " \n" + digitMatch(5, 5552) + " \n" +
+	   digitMatch(892, 892) + " \n" + digitMatch(298892, 7892) + " \n" + digitMatch(380, 0)
+	   + " \n" + digitMatch(123456, 654321) + " \n" + digitMatch(1234567, 67));
 	   
 	   
 

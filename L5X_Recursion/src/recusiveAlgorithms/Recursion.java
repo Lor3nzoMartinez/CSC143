@@ -14,21 +14,12 @@ public class Recursion {
 	
 //PROBLEM 2
 	public static int fibSequence(int n) {
-		int previous = 0;
-		int secPrevious = 1;
 		
 		if(n == 0) { return n; } 
 		
-		else if(n<3) { n = previous + secPrevious; } 
+		else if(n<3) { n = 0 + 1; } 
 		
-		else {
-			previous = fibSequence(n-1);
-			
-			secPrevious = fibSequence(n-2);
-			
-			n = previous + secPrevious;
-			
-			}
+		else { n = fibSequence(n-1) +fibSequence(n-2); }
 		
 		return n;
 	}
