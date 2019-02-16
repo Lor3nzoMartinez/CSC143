@@ -104,8 +104,16 @@ public class practiceIt {
 	}
 	
 // Problem repeat
-	public static String repeat(String a, int b) {
-		if () {}
+	public static String repeat(String a, int n) {
+		if ( n < 0 ) { throw new IllegalArgumentException(); }
+		
+		else if ( n == 0 ) { return ""; }
+		
+		else if ( n > 0 ){ 
+			repeat(a, n-1);
+			return a;
+		}	
+		
 		return a;
 	}
 	
@@ -151,8 +159,10 @@ public class practiceIt {
 	   System.out.println(" \n" + digitMatch(38, 34) + " \n" + digitMatch(5, 5552) + " \n" +
 	   digitMatch(892, 892) + " \n" + digitMatch(298892, 7892) + " \n" + digitMatch(380, 0)
 	   + " \n" + digitMatch(123456, 654321) + " \n" + digitMatch(1234567, 67));
+	   System.out.println(" \n");
 	   
-	   
+	   //Test repeat
+	   System.out.println(repeat("hello",3));
 
    	}
 }
