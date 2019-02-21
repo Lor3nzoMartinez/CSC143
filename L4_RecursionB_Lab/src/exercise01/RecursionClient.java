@@ -26,7 +26,14 @@ public class RecursionClient {
 	 * *********************************************************/
 	public static double exp(double x, int n) {
 		
-		return 0;
+		if(n < 0) { throw new IllegalArgumentException(); }
+				
+		else if (n == 1) { return x; }
+				
+		else if (n == 2) { return x * x; }
+				
+		else { return exp(x, n-1) * x; }	
+
 	}
 	
 	/************************************************************
@@ -36,7 +43,13 @@ public class RecursionClient {
 	 * **********************************************************/
 	public static int factorial(int n) {
 		
-		return 0;
+		if (n < 0) { throw new IllegalArgumentException(); }
+		
+		else if( n == 1 ) { return n; } 
+		
+		else { n = factorial(n-1) * n; }
+		
+		return n;
 	}
 	
 	/***********************************************************
@@ -46,7 +59,15 @@ public class RecursionClient {
 	 * *********************************************************/
 	public static int fibonacci(int n) {
 		
-		return 0;
+		if (n < 0) { throw new IllegalArgumentException(); }
+		
+		else if(n == 0) { return n; } 
+		
+		else if(n<3) { n = 0 + 1; } 
+		
+		else { n = fibonacci(n-1) + fibonacci(n-2); }
+		
+		return n;
 	}
 	
 	/***********************************************************
@@ -56,7 +77,14 @@ public class RecursionClient {
 	 * *********************************************************/
 	public static int pow(int x, int n) {
 		
-		return 0;
+		if(n < 0) { throw new IllegalArgumentException(); }
+			
+		else if (n == 1) { return x; }
+			
+		else if (n == 2) { return x * x; }
+			
+		else { return pow(x, n-1) * x; }
+		
 	}
 	
 	/***********************************************************
@@ -66,7 +94,14 @@ public class RecursionClient {
 	 * *********************************************************/
 	public static int sum(int n) {
 		
-		return 0;
+		if (n < 0) { throw new IllegalArgumentException(); }
+		
+		else if (n > 0) {n = sum(n-1) + n ;}
+		
+		else { return n;}
+		
+		return n;
+		
 	}
 	
 	/***********************************************************
@@ -76,7 +111,17 @@ public class RecursionClient {
 	 * *********************************************************/
 	public static int sumOdd(int n) {
 		
-		return 0;
+		if(n < 0) { throw new IllegalArgumentException();}
+		
+		else if (n == 0) { n = 1; }
+		
+		else if(n % 2 != 0 ) { return 2*(n+1) + sumOdd(n-1); }
+		
+		else { return sumOdd(n-1); }
+		
+		return n;
+		
+		
 	}
 	
 	/***********************************************************

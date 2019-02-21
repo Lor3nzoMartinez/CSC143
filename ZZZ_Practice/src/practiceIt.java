@@ -109,15 +109,75 @@ public class practiceIt {
 		
 		else if ( n == 0 ) { return ""; }
 		
-		else if ( n > 0 ){ 
-			repeat(a, n-1);
-			return a;
-		}	
+		else {
+			int num = n % 10;
+			String temp = "";
+			for(int i = 0; i < num-1; i++) {
+				temp += a;
+			}
+			if( n >= 10 ) {
+				for (int i = 0; i < 9; i++) {
+					a += a;
+				}
+			}
+			return temp + a + repeat( a, n / 10);
+		}
 		
-		return a;
+	}
+
+// Problem isReversed
+	public static boolean isReversed(String a, String b) {
+		if(a.length() == b.length()) {
+			 return true;
+		}
+		
+		else if(a.length() != b.length()) {
+			return false;
+		}
+		
+		else {
+			return false;
+		}
+		
 	}
 	
+	public static int helps(int n) {
+		if (n == 1) {
+	        return 1;
+	    } 
+		
+		else {
+	        helps(n - 1);
+	        return n;
+	    }
+		
+	}
+
+// Problem printNums
+	public static String printNums(int nums) {
+		String convert = Integer.toString(nums) ;
+		if(nums == 1) {
+			return "1";
+		}
+		
+		else {
+			System.out.print(convert);
+			return printNums(nums-1);
+		}
 	
+	}
+	
+// convert string to nums
+	private int x;
+	
+	public practiceIt(int x){
+			this.x = x;
+			}
+	public String toString(){
+		return"x="+ x;
+		}
+
+	}
 // TESTS
    public static void main (String [] args) {
 	   
@@ -163,6 +223,9 @@ public class practiceIt {
 	   
 	   //Test repeat
 	   System.out.println(repeat("hello",3));
+	   
+	   //Test isReversed
+	   System.out.println(printNums(5));
 
    	}
 }
