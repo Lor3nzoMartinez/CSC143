@@ -24,29 +24,25 @@ public class BinarySearch {
 	 *  @param target value
 	 * ****************************************************/
 	public static int binarySearch(int[] data, int target) {
-		int left = 0;
-		int right = data.length -1;
-		
-		int  counter = 0;
+		int low = 0;
+		int high = data.length -1;
 		
 		System.out.println("target value: " + target);
 		
-		while(left <= right) {
-			int mid = (left + right) / 2; 
-			counter++;
-			if (data[mid] == target) {
-				return counter;
-			}
-			else if (target < data[mid]) {
-				right = mid -1;
-			}
-			else {
-				left = mid +1;
-			}
-			
-		}
-		
-		return 0;
+		int index = Integer.MAX_VALUE;
+     
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        if (data[mid] < target) {
+            low = mid + 1;
+        } else if (data[mid] > target) {
+            high = mid - 1;
+        } else if (data[mid] == target) {
+            index = mid;
+            return index;
+        }
+    }
+    return -1;
 	}
 	
 	/******************************************************
