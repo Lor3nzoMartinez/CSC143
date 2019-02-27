@@ -155,7 +155,7 @@ public class practiceIt {
 
 // Problem printNums
 	public static String printNums(int nums) {
-		String convert = Integer.toString(nums) ;
+		String convert = Integer.toString(nums);
 		if(nums == 1) {
 			return "1";
 		}
@@ -165,19 +165,8 @@ public class practiceIt {
 			return printNums(nums-1);
 		}
 	
-	}
-	
-// convert string to nums
-	private int x;
-	
-	public practiceIt(int x){
-			this.x = x;
-			}
-	public String toString(){
-		return"x="+ x;
-		}
+}
 
-	}
 // TESTS
    public static void main (String [] args) {
 	   

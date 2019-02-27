@@ -18,10 +18,18 @@ public class LinearSearch {
 	 *  @param target value
 	 ******************************************************/
 	public static int indexOf(int[] data, int target) {
+		int counter = -1;
 		
 		System.out.println("target value: " + target);
 		
-		return 0;
+		for (int i = 0; i < data.length; i++) {
+			counter++;
+			if (data[i] == target) {
+				return counter;
+			}
+		}
+		
+		return -1;
 	}
 	
 	/******************************************************
