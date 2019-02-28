@@ -38,19 +38,24 @@ public class RecursiveBinarySearch {
 	 *  @param maximum index of interest
 	 * ****************************************************/
 	private static int binarySearch(int[] data, int target, int low, int high){
-		int mid = low + ((high - low) /2);
-		int counter = 0;
+		int mid = (low + high) / 2;
 		
-		if (data[mid] == target) {
-			return counter;
-		}
-		else if (target < data[mid]) {
-			return binarySearch(data, target, low, mid-1);
-		}
-		else {
-			//return binarySearch(data, target, mid, high);
-		}
-		return 0;
+		if (high < low) {
+	        return -1;
+	    }
+		
+		if (target == data[mid]) {
+	        return mid;
+	    } else if (target < data[mid]) {
+	        return binarySearch(
+	          data, target, low, mid - 1);
+	    } else {
+	        return binarySearch(
+	          data, target, mid + 1, high);
+	    }
+		
+		
+		
 	}
 	
 	/******************************************************
