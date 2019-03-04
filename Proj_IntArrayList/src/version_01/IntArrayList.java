@@ -2,7 +2,26 @@ package version_01;
 
 import java.util.Arrays;
 
+/******************************************************************
+ * <p> IntArrayList representing a Array of integers,
+ * 	   with special functionality: add, remove, indexOf, and 
+ *******************************************************************/
+
 public class IntArrayList {
+	
+	/***********************************************
+	 * 	data fields
+	 * 	int size stores the size of the ArrayList
+	 * 
+	 *  int[] element is used to hold values and
+	 *  help shift left right and remove.
+	 *  
+	 *  int DEFAULT_CAPACITY sets the default size
+	 *  of the list.
+	 *  
+	 *  int NOT_FOUND is the value set for when 
+	 *  no value is found.
+	 ***********************************************/
 
 	private int size;
 	private int[] element;

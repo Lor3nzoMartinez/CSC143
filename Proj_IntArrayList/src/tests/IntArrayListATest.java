@@ -1,3 +1,6 @@
+/********************************************************
+ * This is a test class for IntArrayList
+ ********************************************************/
 package tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -7,7 +10,11 @@ import version_01.IntArrayList;
 class IntArrayListATest {
 
 	private IntArrayList testList = new IntArrayList();
-
+	
+	/**********************************************
+	 * Test method for {@link version_01.IntArrayList#IntArrayList()}.
+	 **********************************************/
+	
 	@Test
 	void testIntArrayList() {
 		assertEquals(3, testList.DEFAULT_CAPACITY);
@@ -17,6 +24,10 @@ class IntArrayListATest {
 				+ testList.toString()
 				+ "\n");
 	}
+	
+	/**********************************************
+	 * Test method for {@link version_01.IntArrayList#IntArrayList(int)}.
+	 **********************************************/
 
 	@Test
 	void testIntArrayListIntArrayList() {
@@ -31,6 +42,10 @@ class IntArrayListATest {
 				+ testList.toString()
 				+ "\n");
 	}
+	
+	/**********************************************
+	 * Test method for {@link version_01.IntArrayList#add(int)}.
+	 **********************************************/
 
 	@Test
 	void testadd() {
@@ -45,6 +60,10 @@ class IntArrayListATest {
 				+ testList.toString() 
 				+ "\n");
 	}
+	
+	/**********************************************
+	 * Test method for {@link version_01.IntArrayList#add( int, int)}.
+	 **********************************************/
 
 	@Test
 	void testaddadd() {
@@ -61,6 +80,10 @@ class IntArrayListATest {
 				+ "\n");
 	}
 	
+	/**********************************************
+	 * Test method for {@link version_01.IntArrayList#remove(int)}.
+	 **********************************************/
+	
 	@Test
 	void testremove() {
 		for (int i = 0; i < 5; i++) {
@@ -75,6 +98,10 @@ class IntArrayListATest {
 				+ testList.toString()
 				+ "\n");
 	}
+	
+	/**********************************************
+	 * Test method for {@link version_01.IntArrayList#get(int)}.
+	 **********************************************/
 	
 	@Test
 	void testget() {
@@ -91,6 +118,10 @@ class IntArrayListATest {
 				+ "\n");
 	}
 	
+	/**********************************************
+	 * Test method for {@link version_01.IntArrayList#size()}.
+	 **********************************************/
+	
 	@Test
 	void testsize() {
 		for (int i = 0; i < 5; i++) {
@@ -105,6 +136,10 @@ class IntArrayListATest {
 				+ testList.size()
 				+ "\n");
 	}
+	
+	/**********************************************
+	 * Test method for {@link version_01.IntArrayList#toString()}.
+	 **********************************************/
 
 	@Test
 	void testtoString() {
@@ -118,6 +153,10 @@ class IntArrayListATest {
 				+ testList.toString() 
 				+ "\n");
 	}
+	
+	/**********************************************
+	 * Test method for {@link version_01.IntArrayList#indexOf(int)}.
+	 **********************************************/
 	
 	@Test
 	void testindexOf() {
