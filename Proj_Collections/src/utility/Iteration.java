@@ -2,18 +2,9 @@ package utility;
 
 public interface Iteration<T>{
 	
-	public static boolean hasNext() {
-		return false;
-	}
+	public boolean hasNext();
 	
-	public static <T> next() {
-		T result;
-		if (!hasNext()) {
-			
-		}
-	}
+	public T next();
 
-	public static void remove() {
-		
-	}
+	public void remove();
 }

@@ -4,28 +4,16 @@ import javax.swing.plaf.synth.SynthSeparatorUI;
 
 public interface List<T> {
 
-	public static void add(T value) {
-		System.out.println();
-	}
+	public void add(T value);
 
-	public static void add(int index, T value) {
-		System.out.println();
-	}
+	public void add(int index, T value);
 
-	public static int indexOf(T value) {
-		return 0;
-	}
+	public int indexOf(T value);
 
-	public static void remove(int index) {
-		System.out.println();
-	}
+	public void remove(int index);
 
-	public static int size() {
-		return 0;
-	}
+	public int size();
 
-	public String toString() {
-		return "";
-	}
+	public String toString();
 
 }

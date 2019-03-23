@@ -1,4 +1,4 @@
-package version_01;
+package lists;
 
 import java.util.Arrays;
 
