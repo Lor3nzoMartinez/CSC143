@@ -1,10 +1,16 @@
-package lists;
+package listLinker;
+
+import java.util.Iterator;
 
 public interface List<T> {
 
 	public void add(T value);
 
 	public void add(int index, T value);
+	
+	public void clear();
+	
+	public boolean contains(T value);
 	
 	public T get(int index);
 
@@ -19,5 +25,4 @@ public interface List<T> {
 	public int size();
 
 	public String toString();
-
 }

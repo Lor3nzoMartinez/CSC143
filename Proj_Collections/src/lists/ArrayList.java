@@ -127,7 +127,7 @@ public class ArrayList<T> implements List<T> {
 			counter++;
 		}
 
-		return element[size - 1] + "]";
+		return element[size] + "]";
 	}
 
 	public class ArrayIterator implements Iterator<T> {
